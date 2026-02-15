@@ -1,78 +1,59 @@
-# api-quarkus
+# Quarkus API Project Documentation
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Overview
+This project implements a RESTful API using the Quarkus framework, known for its fast startup time and low memory usage.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+## REST Endpoints
 
-## Running the application in dev mode
+### 1. GET /api/items
+- **Description**: Retrieves a list of items.
+- **Response**: Returns a JSON array of items.
 
-You can run your application in dev mode that enables live coding using:
+### 2. GET /api/items/{id}
+- **Description**: Retrieves details of a specific item by ID.
+- **Response**: Returns a JSON object representing the item.
 
-```shell script
-./mvnw quarkus:dev
-```
+### 3. POST /api/items
+- **Description**: Adds a new item to the list.
+- **Request Body**: JSON object representing the item.
+- **Response**: Returns the created item with its ID.
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+### 4. PUT /api/items/{id}
+- **Description**: Updates an existing item by ID.
+- **Request Body**: JSON object representing the updated item.
+- **Response**: Returns the updated item.
 
-## Packaging and running the application
+### 5. DELETE /api/items/{id}
+- **Description**: Deletes an item by ID.
+- **Response**: Returns an acknowledgment of deletion.
 
-The application can be packaged using:
+## Quarkus Framework Features
+- **Fast Startup**: Quarkus has optimized startup times for Java applications.
+- **Native Compilation**: Quarkus can compile your application into a native binary via GraalVM, significantly reducing memory consumption.
+- **Developer Experience**: Features such as live reload, and zero configuration to enhance developer productivity.
+- **Extensive Extensions**: Offers a wide range of extensions for various integrations and functionalities.
 
-```shell script
-./mvnw package
-```
+## Installation Instructions
+1. **Prerequisites**: Ensure you have Java 11+ installed, along with Maven.
+2. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yorrisonsouza/api-quarkus.git
+   cd api-quarkus
+   ```
+3. **Build the project**:
+   ```bash
+   ./mvnw package
+   ```
+4. **Run the application**:
+   ```bash
+   ./mvnw quarkus:dev
+   ```
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+## Development Guidelines
+- Use descriptive commit messages to enhance the history.
+- Follow the RESTful conventions in naming endpoints.
+- Ensure unit tests accompany new features or changes.
+- Regularly synchronize with the main branch to avoid merge conflicts.
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/api-quarkus-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- REST ([guide](https://quarkus.io/guides/rest)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-- REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
-- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplify your persistence code for Hibernate ORM via the active record or the repository pattern
-- JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC
-
-## Provided Code
-
-### Hibernate ORM
-
-Create your first JPA entity
-
-[Related guide section...](https://quarkus.io/guides/hibernate-orm)
-
-[Related Hibernate with Panache section...](https://quarkus.io/guides/hibernate-orm-panache)
-
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+## Conclusion
+This documentation provides a foundational understanding of the API's structure and the capabilities of the Quarkus framework. For detailed inquiries, refer to the official [Quarkus documentation](https://quarkus.io/guides/).
